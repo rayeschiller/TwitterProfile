@@ -1,0 +1,45 @@
+
+{% extends "bootstrap/base.html" %}
+<html>
+<head>
+    <meta charset="UTF-8"> 
+    <title>Political Misogyny in Tweets</title>
+    {% block scripts %}{{super()}}<script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+            // $(document).ready(function(){
+                
+            //     });
+            // });
+        // });
+    </script> {% endblock %}
+    {% block styles %} {{super()}}<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}"> {% endblock %}
+
+    {% block title %}Twitter User Profiles{% endblock %}
+    </head>
+
+
+    {% block content %}
+        <div class="jumbotron text-center">
+              <h1>Twitter Personality Profile</h1>
+              <p>Enter your Twitter Username to learn about your personality</p>
+        </div>
+
+        <div class="container pagination-centered">
+            <div class="row">
+                <div class="col-sm-5">
+                    <form action = "http://localhost:5000/showtweets" method="POST">
+                    <div class="form-group">
+                        <label for="username">Twitter Username:</label>
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0"><div class="input-group-addon">@</div><input type="text" name="username" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+                         </div> 
+                    </div>              
+                        <button type="submit" class="btn btn-primary btn-block" value="Submit">Submit</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      
+    {% endblock %}   
+  
+</html>
